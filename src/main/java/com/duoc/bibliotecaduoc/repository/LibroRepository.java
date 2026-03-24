@@ -84,9 +84,20 @@ public class LibroRepository {
     }
     public ArrayList<Libro> librosOrdenados(){
         ArrayList<Libro> ordenarLibros = new ArrayList<>(listaLibros);
-        return ordenarLibros.sort();
+        
+  //El plan es usar un for para evaluar cada libro y su año
+  //En el primer for se debe agregar un libro si o si
+  //Despues se debe evaluar si la fecha es mayor o menor, e insertar segun corresponda
+  //Segun recuerdo lo que deberia agregarse es un contador para la primera insercion
+  //Ademas se debe tener cuidado con los tipos de insercion
+  //La lista siempre debe empezarcon la fecha mas antigua
+        for (Libro libros : listaLibros){
+            for (Libro agregar : ordenarLibros)
+                if (agregar.getFechaPublicacion() >= libros.getFechaPublicacion()){
+                    ordenarLibros.add(libros);
+                }
+            }
         }
-    }
     public Libro guardar(Libro lib) {
         listaLibros.add(lib);
         return lib;
