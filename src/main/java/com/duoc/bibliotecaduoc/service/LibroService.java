@@ -4,6 +4,8 @@ import com.duoc.bibliotecaduoc.model.Libro;
 import com.duoc.bibliotecaduoc.repository.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,7 +42,9 @@ public class LibroService{
     public Libro buscarPorIsbn(String isbn) {
         return libroRepository.buscarPorIsbn(isbn);
     }
-    public Libro buscarPorFecha(int fecha){
-        return libroRepository.buscarPorFecha(fecha);
-    }
+    public Libro buscarPorFecha(int fecha){return libroRepository.buscarPorFecha(fecha);}
+    public Libro buscarPorAutor(String autor){return libroRepository.buscarPorAutor(autor);}
+    public ArrayList<Libro> buscarAntesFecha(int antes){return libroRepository.buscarAntesFecha(antes);}
+    public ArrayList<Libro> buscarDespuesFecha(int despues){return libroRepository.buscarDespuesFecha(despues);}
+
 }

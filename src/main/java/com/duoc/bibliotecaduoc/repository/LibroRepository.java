@@ -46,6 +46,14 @@ public class LibroRepository {
         }
         return null;
     }
+    public Libro buscarPorAutor(String autor) {
+        for (Libro libro : listaLibros) {
+            if (libro.getAutor().equals(autor)) {
+                return libro;
+            }
+        }
+        return null;
+    }
     public Libro buscarPorFecha(int fecha) {
         for (Libro libro : listaLibros) {
             if (libro.getFechaPublicacion() == fecha) {
@@ -53,6 +61,31 @@ public class LibroRepository {
             }
         }
         return null;
+    }
+
+
+    public ArrayList<Libro>buscarAntesFecha(int antes) {
+        ArrayList<Libro> antesFecha = new ArrayList<>();
+        for (Libro libro : listaLibros) {
+            if (libro.getFechaPublicacion() <= antes) {
+                antesFecha.add(libro);
+            }
+        }
+        return antesFecha;
+    }
+    public ArrayList<Libro>buscarDespuesFecha(int despues) {
+        ArrayList<Libro> despuesFecha = new ArrayList<>();
+        for (Libro libro : listaLibros) {
+            if (libro.getFechaPublicacion() >= despues) {
+                despuesFecha.add(libro);
+            }
+        }
+        return despuesFecha;
+    }
+    public ArrayList<Libro> librosOrdenados(){
+        ArrayList<Libro> ordenarLibros = new ArrayList<>(listaLibros);
+        return ordenarLibros.sort();
+        }
     }
     public Libro guardar(Libro lib) {
         listaLibros.add(lib);

@@ -4,6 +4,8 @@ import com.duoc.bibliotecaduoc.model.Libro;
 import com.duoc.bibliotecaduoc.service.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,4 +52,10 @@ public class LibroController {
     public Libro buscarPorFecha(@PathVariable int fecha){
         return libroService.buscarPorFecha(fecha);
     }
+    @GetMapping("/autor/{autor}")
+    public Libro buscarPorAutor(@PathVariable String autor){return libroService.buscarPorAutor(autor);}
+    @GetMapping("/antes/{antes}")
+    public ArrayList<Libro> buscarAntesFecha(@PathVariable int antes){return libroService.buscarAntesFecha(antes);}
+    @GetMapping("/despues/{despues}")
+    public ArrayList<Libro> buscarDespuesFecha(@PathVariable int despues){return libroService.buscarDespuesFecha(despues);}
 }
