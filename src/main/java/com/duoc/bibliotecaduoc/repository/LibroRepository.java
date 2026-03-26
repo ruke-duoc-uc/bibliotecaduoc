@@ -97,11 +97,14 @@ public class LibroRepository {
                     ordenarLibros.add(libros);
                 }
             }
+            return null; //Reemplazar despues
         }
     public Libro guardar(Libro lib) {
         listaLibros.add(lib);
         return lib;
+    
     }
+    
 
     public Libro actualizar(Libro lib) {
         int id = 0;
